@@ -1,4 +1,4 @@
 # runlogsum
-Relay script for runlogsum. Based on ckb's code.
+Relay Script that Stores storelogs.
 
-https://i.imgur.com/AGlqZwJ.gifv
+https://i.imgur.com/m2Krfas.gifv
