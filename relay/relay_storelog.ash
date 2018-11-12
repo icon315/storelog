@@ -20,8 +20,8 @@ void fullTable()
 			write("<td>"+log.group(3)+"</td>");//Customer
 			write("<td>"+log.group(4)+"</td>");//Amount
 			write("<td>"+log.group(5)+"</td>");//Item
-			write("<td>"+log.group(6)+"</td>");//Total
-			write("<td>"+(log.group(6).to_int()/log.group(4).to_int())+"</td></tr>");
+			write("<td>"+log.group(6).to_int().to_string("%,d")+"</td>");//Total
+			write("<td>"+(log.group(6).to_int()/log.group(4).to_int()).to_string("%,d")+"</td></tr>");
 			cumMeatGain += log.group(6).to_int();
 		}
 	}
