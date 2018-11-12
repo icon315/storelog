@@ -2,12 +2,13 @@ int[string] itemCount;
 string[int]storeLogOld;
 string[int]storeLogCum;
 int cumStartCount;
+int cumMeatGain;
 
 void fullTable()
 {
 	write("<Table>");
 	writeln("<script language=\"Javascript\" type=\"text/javascript\" src=\"sorttable.js\"></script>");
-	write("<table cellpadding=\"13\" cellspacing=\"0\" border=\"1px\" class=\"sortable\">");
+	write("<table style=\"float:left;\" cellpadding=\"13\" cellspacing=\"0\" border=\"1px\" class=\"sortable\">");
 	write("<tr><th>Date</th><th>Time</th><th>Customer</th><th>Amount</th><th>Item</th><th>Total</th><th>Unit Price</th></tr>");
 	foreach i in storeLogCum
 	{
@@ -21,9 +22,14 @@ void fullTable()
 			write("<td>"+log.group(5)+"</td>");//Item
 			write("<td>"+log.group(6)+"</td>");//Total
 			write("<td>"+(log.group(6).to_int()/log.group(4).to_int())+"</td></tr>");
+			cumMeatGain += log.group(6).to_int();
 		}
 	}
 
+	write("</table>");
+	write("<table style=\"float:right;text-align:center;\" cellpadding=\"3\" cellspacing=\"0\" border=\"0px\" >");
+	write("<tr><th>Total Meat Gained</th></tr>");
+	write("<tr><td>"+cumMeatGain.to_string("%,d")+"</td></tr>");
 	write("</table>");
 }
 
